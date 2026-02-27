@@ -93,6 +93,34 @@ svg {
   vertical-align: unset;
 }
 
+/* Modern UI Enhancements */
+.card {
+  @apply backdrop-blur-md border border-base-content/10 bg-base-100/60 transition-all duration-300;
+}
+
+.card:hover {
+  @apply border-primary/20 shadow-xl shadow-primary/5;
+}
+
+.card-title {
+  @apply font-bold tracking-tight;
+}
+
+.btn {
+  @apply rounded-xl transition-all duration-300;
+}
+
+.avatar img {
+  @apply transition-transform duration-500 hover:scale-110;
+}
+
+.glass-effect {
+  background: rgba(var(--color-base-100), 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(var(--color-base-content), 0.1);
+}
+
 .z-hover {
   transition: all ease-in-out 0.3s !important;
 }

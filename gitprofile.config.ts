@@ -33,11 +33,17 @@ const CONFIG = {
       // To hide the `External Projects` section, keep it empty.
       projects: [
         {
+          title: 'Delphi: Privacy-First Offline AI Tutor 🚧',
+          description:
+            'Architected a local-first RAG system (Python, LangChain, ChromaDB) allowing students to query PDF textbooks offline with zero data leakage. Features an AI Chat Tutor and automated MCQ Quiz generator. (Under Development)',
+          imageUrl: '/delphi_preview.png',
+          link: '',
+        },
+        {
           title: 'SkillPath AI',
           description:
             'Master in-demand skills with AI Tutors that teach in real-time, anytime. Personalized learning powered by intelligent tutors.',
-          imageUrl:
-            '/Screenshot 2026-02-14 164925.png',
+          imageUrl: '/Screenshot 2026-02-14 164925.png',
           link: 'https://skillpath-ai.com/',
         },
       ],
@@ -68,7 +74,7 @@ const CONFIG = {
   },
   resume: {
     fileUrl:
-      'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', // Empty fileUrl will hide the `Download Resume` button.
+      'https://1drv.ms/b/c/ab864823c5c605c5/IQAGFJFWPjxbRal95QkoeKOdAVmHJowZLhZHdkjzprWKSo0?e=AIVHOY', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
     'PHP',
@@ -177,11 +183,11 @@ const CONFIG = {
   // Track visitor interaction and behavior. https://www.hotjar.com
   hotjar: { id: '', snippetVersion: 6 },
   themeConfig: {
-    defaultTheme: 'lofi',
+    defaultTheme: 'night',
 
     // Hides the switch in the navbar
     // Useful if you want to support a single color mode
-    disableSwitch: false,
+    disableSwitch: true,
 
     // Should use the prefers-color-scheme media-query,
     // using user system preferences, instead of the hardcoded defaultTheme
