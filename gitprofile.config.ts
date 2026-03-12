@@ -74,7 +74,7 @@ const CONFIG = {
   },
   resume: {
     fileUrl:
-      'https://1drv.ms/b/c/ab864823c5c605c5/IQAGFJFWPjxbRal95QkoeKOdAVmHJowZLhZHdkjzprWKSo0?e=AIVHOY', // Empty fileUrl will hide the `Download Resume` button.
+      'https://1drv.ms/b/c/ab864823c5c605c5/IQCcANaKkvWjTo5L1GwYSZC9ATLBtHLdreDnQkr29QmaRyQ?e=Z2Izh7', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
     'PHP',
