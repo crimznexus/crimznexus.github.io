@@ -46,6 +46,13 @@ const CONFIG = {
           imageUrl: '/Screenshot 2026-02-14 164925.png',
           link: 'https://skillpath-ai.com/',
         },
+        {
+          title: 'MangaForge',
+          description:
+            'Free, open-source Android manga & webtoon reader built with Kotlin and Jetpack Compose. Features a curated discovery experience powered by AniList — with hero carousels, trending/popular shelves, separate manga & manhwa tabs, offline downloads, and community extensions.',
+          imageUrl: '/mangaforge_icon.png',
+          link: 'https://github.com/crimznexus/MangaForge',
+        },
       ],
     },
   },
