@@ -278,7 +278,11 @@ const GitProfile = ({ config }: { config: Config }) => {
   };
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(id);
+    if (!el) return;
+    const navHeight = 64;
+    const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+    window.scrollTo({ top, behavior: 'smooth' });
   };
 
   // ── Project page routing ────────────────────────────────────────────
@@ -529,7 +533,7 @@ const GitProfile = ({ config }: { config: Config }) => {
             )}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
               {/* Left column */}
-              <div id="contact" className="col-span-1">
+              <div className="col-span-1">
                 <div className="grid grid-cols-1 gap-6">
                   <div className="reveal-left">
                     <AvatarCard
@@ -539,7 +543,7 @@ const GitProfile = ({ config }: { config: Config }) => {
                       resumeFileUrl={sanitizedConfig.resume.fileUrl}
                     />
                   </div>
-                  <div className="reveal-left" style={{ transitionDelay: '0.05s' }}>
+                  <div id="contact" className="reveal-left" style={{ transitionDelay: '0.05s' }}>
                     <DetailsCard
                       profile={profile}
                       loading={loading}
