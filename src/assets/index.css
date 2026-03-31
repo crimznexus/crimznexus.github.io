@@ -376,6 +376,7 @@ svg {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  padding-top: 80px;
   background: radial-gradient(
       ellipse 80% 80% at 50% -20%,
       rgba(56, 189, 248, 0.08) 0%,

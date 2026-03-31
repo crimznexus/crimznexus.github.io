@@ -8,11 +8,13 @@ const ExternalProjectCard = ({
   header,
   loading,
   googleAnalyticId,
+  onProjectClick,
 }: {
   externalProjects: SanitizedExternalProject[];
   header: string;
   loading: boolean;
   googleAnalyticId?: string;
+  onProjectClick?: (title: string) => void;
 }) => {
   const renderSkeleton = () =>
     Array.from({ length: externalProjects.length }).map((_, index) => (
@@ -45,6 +47,10 @@ const ExternalProjectCard = ({
             border: '1px solid rgba(255,255,255,0.06)',
           }}
           onClick={() => {
+            if (onProjectClick) {
+              onProjectClick(item.title);
+              return;
+            }
             if (!isClickable) return;
             try {
               if (googleAnalyticId) ga.event('Click External Project', { post: item.title });

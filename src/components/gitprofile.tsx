@@ -28,6 +28,7 @@ import ExternalProjectCard from './external-project-card';
 import BlogCard from './blog-card';
 import Footer from './footer';
 import PublicationCard from './publication-card';
+import MangaForgePage from './mangaforge-page';
 
 const ROLES = [
   'AI Developer',
@@ -45,6 +46,9 @@ const GitProfile = ({ config }: { config: Config }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [githubProjects, setGithubProjects] = useState<GithubProject[]>([]);
+
+  // Page routing state
+  const [currentPage, setCurrentPage] = useState<string | null>(null);
 
   // Hero typewriter state
   const [roleIdx, setRoleIdx] = useState(0);
@@ -276,6 +280,11 @@ const GitProfile = ({ config }: { config: Config }) => {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // ── Project page routing ────────────────────────────────────────────
+  if (currentPage === 'MangaForge') {
+    return <MangaForgePage onBack={() => setCurrentPage(null)} />;
+  }
 
   return (
     <div className="fade-in">
@@ -604,6 +613,7 @@ const GitProfile = ({ config }: { config: Config }) => {
                           sanitizedConfig.projects.external.projects
                         }
                         googleAnalyticId={sanitizedConfig.googleAnalytics.id}
+                        onProjectClick={(title) => setCurrentPage(title)}
                       />
                     </div>
                   )}
