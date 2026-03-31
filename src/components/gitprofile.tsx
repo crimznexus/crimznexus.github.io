@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
 import { formatDistance } from 'date-fns';
 import {
@@ -28,7 +29,6 @@ import ExternalProjectCard from './external-project-card';
 import BlogCard from './blog-card';
 import Footer from './footer';
 import PublicationCard from './publication-card';
-import MangaForgePage from './mangaforge-page';
 
 const ROLES = [
   'AI Developer',
@@ -47,8 +47,7 @@ const GitProfile = ({ config }: { config: Config }) => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [githubProjects, setGithubProjects] = useState<GithubProject[]>([]);
 
-  // Page routing state
-  const [currentPage, setCurrentPage] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   // Hero typewriter state
   const [roleIdx, setRoleIdx] = useState(0);
@@ -284,11 +283,6 @@ const GitProfile = ({ config }: { config: Config }) => {
     const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
     window.scrollTo({ top, behavior: 'smooth' });
   };
-
-  // ── Project page routing ────────────────────────────────────────────
-  if (currentPage === 'MangaForge') {
-    return <MangaForgePage onBack={() => setCurrentPage(null)} />;
-  }
 
   return (
     <div className="fade-in">
@@ -617,7 +611,7 @@ const GitProfile = ({ config }: { config: Config }) => {
                           sanitizedConfig.projects.external.projects
                         }
                         googleAnalyticId={sanitizedConfig.googleAnalytics.id}
-                        onProjectClick={(title) => setCurrentPage(title)}
+                        onProjectClick={(title) => navigate(`/${title.toLowerCase()}`)}
                       />
                     </div>
                   )}

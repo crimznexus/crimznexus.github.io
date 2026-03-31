@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const FEATURES = [
   {
@@ -123,7 +124,10 @@ const APK_VARIANTS = [
   { arch: 'Universal', desc: 'All architectures (larger size)', recommended: false },
 ];
 
-const MangaForgePage = ({ onBack }: { onBack: () => void }) => {
+const MangaForgePage = ({ onBack }: { onBack?: () => void }) => {
+  const navigate = useNavigate();
+  const handleBack = () => (onBack ? onBack() : navigate('/'));
+
   // Scroll to top when page mounts
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -158,7 +162,7 @@ const MangaForgePage = ({ onBack }: { onBack: () => void }) => {
         }}
       >
         <button
-          onClick={onBack}
+          onClick={handleBack}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -714,7 +718,7 @@ const MangaForgePage = ({ onBack }: { onBack: () => void }) => {
           <span style={{ fontSize: '0.8rem', color: 'rgba(166,173,187,0.4)' }}>MangaForge · Apache 2.0</span>
         </div>
         <button
-          onClick={onBack}
+          onClick={handleBack}
           style={{
             background: 'none',
             border: 'none',
